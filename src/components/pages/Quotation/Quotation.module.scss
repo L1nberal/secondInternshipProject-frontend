@@ -1,0 +1,75 @@
+.wrapper{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    // =============driver's infor==================
+    .driver-infor{
+        width: 100%;
+        width: 700px;
+
+        .driver-infor__body{
+            display: flex;
+            flex-direction: column;
+            margin: 0px auto;
+            align-items: center;
+
+            .driver-infor__license-plate{
+                width: 100%;
+                font-weight: bold;
+                display: flex;
+                justify-content: end;
+
+                div{
+                    margin-right: 10px;
+
+                    &:last-child{
+                        margin-right: 0px;
+                        color: rgba($color: #d68c8c, $alpha: 1.0);
+                    }
+                }
+
+            }
+    
+            .driver-infor__image{
+                width: 400px;
+                margin: 20px;
+
+            }
+    
+            .driver-infor__private-infor{
+                span{
+                    margin-right: 10px;
+                    border-right: solid 1px rgb(141, 141, 141);
+                    padding-right: 10px;
+
+                    span{
+                        color: rgba($color: #d68c8c, $alpha: 1.0);
+
+                    }
+    
+                    &:last-child{
+                        margin: 0;
+                        border-right: 0px;
+                        padding-right: 0px;
+                    }
+                }
+            }
+        }
+    }
+    // ================quotaion====================
+    .quotation{
+        width: 700px;
+
+        *{
+            text-align: center;
+        }
+
+        .price{
+            color: rgba($color: #d68c8c, $alpha: 1.0);
+        }
+    }
+}

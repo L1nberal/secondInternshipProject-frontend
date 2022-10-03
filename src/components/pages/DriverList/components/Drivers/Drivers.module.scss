@@ -1,0 +1,114 @@
+.wrapper{
+    // =================filter===================
+    .filter-container{
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: end;
+    }
+
+    .list-group{
+        min-width: 600px;
+        min-height: 550px;
+        position: relative;
+        padding: 0;
+        
+
+        // =======================each item's infor======================
+        .list-item{
+            width: 100%;
+            display: flex;
+            height: 80px;
+
+            .phone-number{
+                span{
+                    color: rgba($color: #ea9494, $alpha: 1.0);
+                }
+            }
+
+            .company{
+                color: rgba($color: #5967d4, $alpha: 1.0);
+            }
+            // ====================QR code popup====================
+            .button-container{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                .button-container__overlay-container{
+                    margin-left: 10px;
+                }
+
+                .button-container__driver-quotation{
+                    margin-top: 10px;
+                    font-weight: bold;
+                    // =============go to quotaion button================
+                    button{
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+        // =======================a spinner pops up when infor is being loaded=====================
+        .spinner{
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+    }
+
+}
+
+//================ popup search-form==============
+.form{
+    position: relative;
+    margin-right: 10px;
+
+    .search-results{
+        display: none;
+        position: absolute;
+        max-height: 200px;
+        overflow: hidden;
+
+        div{
+            cursor: pointer;
+            border: 0px;
+            border-bottom: solid 1px rgba($color: #d0d0d0, $alpha: 1.0);
+
+            &:last-child{
+                border: 0px;
+            }
+
+            &:hover{
+                background-color: rgba($color: #d6d6d6, $alpha: 1.0);
+            }
+
+            a{
+                text-decoration: none;
+                border: 0px;
+            }
+        }
+    }
+}
+
+// popup container which stores qrcode and download-button
+.popover-container{
+    // popover body
+    div{
+        &:last-child{
+            width: 180px;
+        }
+
+    }
+
+    .download-button{
+        width: 150px;
+    }
+}
+
+
+
+
+

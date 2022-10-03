@@ -1,0 +1,210 @@
+.wrapper{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    
+    .accordion{
+        margin-top: 50px;
+        width: 1000px;
+
+        .add-item{
+            // =======================driver adding form=====================
+            .driver-adding-form{
+                .driver-adding-form__title{
+                    font-weight: bold;
+                    font-size: 20px;
+                    color: rgba($color: #eb9999, $alpha: 1.0);
+                    margin-bottom: 20px;
+                }
+
+                .driver-adding-form__name{
+                    margin-bottom: 15px;
+
+                    input{
+                        height: 45px;
+                    }
+                }
+
+                .driver-adding-form__phone-number{
+                    margin-bottom: 15px;
+
+                    input{
+                        height: 45px;
+                    }
+                }
+
+                .driver-adding-form__license-plate{
+                    margin-bottom: 15px;
+
+                    input{
+                        height: 45px;
+                    }
+                }
+    
+                .driver-adding-form__date-of-birth{
+                    margin-bottom: 15px;
+    
+                    .container{
+                        display: flex;
+    
+                        input{
+                            margin-right: 10px;
+                            height: 45px;
+
+                        }
+    
+                        .age{
+                            width: 100px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: start;
+    
+                            .age-container{
+                                color: rgba($color: #e19797, $alpha: 1.0);
+                            }
+                        }
+                    }
+                }
+                
+                .driver-adding-form__submit-btn{
+                    margin: 10px 0px;
+                }
+            }
+            // =======================quotation adding form==========================
+            .quotation-adding-form{
+                .quotation-adding-form__title{
+                    font-weight: bold;
+                    font-size: 20px;
+                    color: rgba($color: #eb9999, $alpha: 1.0);
+                    margin-bottom: 20px;
+                }
+
+                .quotation-adding-form__tour{
+                    margin-bottom: 15px;
+
+                    input{
+                        height: 45px;
+                    }
+                }
+                .quotation-adding-form__phone-number{
+                    margin-bottom: 15px;
+
+                    input{
+                        height: 45px;
+                    }
+                }
+                .quotation-adding-form__price{
+                    margin-bottom: 15px;
+
+                    input{
+                        height: 45px;
+                    }
+                }
+                .quotation-adding-form__returnTrip{
+                    margin-bottom: 15px;
+
+                    input{
+                        height: 45px;
+                    }
+
+                    select{
+                        height: 45px;
+
+                    }
+                }
+                .quotation-adding-form__submit-btn{
+                    margin: 10px 0px;
+                }
+            }
+        }
+
+        .delete-item{
+            // ========================driver delete form=========================
+            .drivers{
+                height: 700px;
+                margin-bottom: 70px;
+
+                .head{
+                    display: flex;
+                    justify-content: space-between;
+
+                    .head__title{
+                        font-weight: bold;
+                        font-size: 20px;
+                        color: rgba($color: #eb9999, $alpha: 1.0);
+                        margin-bottom: 20px;
+                    }
+
+                    .head__actions{
+                        display: flex;
+
+                        .head__actions-dropdown{
+                            margin-right: 10px;
+                        }
+
+                        .head__actions-button{
+                            font-weight: bold;
+                           
+                        }
+                    }
+                }
+
+                .table{
+                    height: 700px;
+                    overflow: scroll;
+                    display: block;
+
+                    tr{
+                        th, td{
+                            font-size: 15px;
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+            // ============================quotation delete form=======================
+            .quotations{
+                height: 700px;
+
+                .head{
+                    display: flex;
+                    justify-content: space-between;
+
+                    .head__title{
+                        font-weight: bold;
+                        font-size: 20px;
+                        color: rgba($color: #eb9999, $alpha: 1.0);
+                        margin-bottom: 20px;
+                    }
+                    
+                    .head__actions{
+                        display: flex;
+
+                        .head__actions-dropdown{
+                            margin-right: 10px;
+                        }
+
+                        .head__actions-button{
+                            font-weight: bold;
+                           
+                        }
+                    }
+                }
+
+                .table{
+                    height: 700px;
+                    overflow: scroll;
+                    display: block;
+
+                    tr{
+                        th, td{
+                            font-size: 15px;
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

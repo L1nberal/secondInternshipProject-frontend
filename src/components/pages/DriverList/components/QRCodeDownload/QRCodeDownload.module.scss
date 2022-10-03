@@ -1,0 +1,49 @@
+.wrapper{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .download-btn{
+        padding: 10px;
+        text-transform: uppercase;
+        font-weight: bolder;
+        margin-bottom: 15px;
+        float: right;
+    }
+
+    .QRcode-for-downloading{
+        padding: 20px 50px;
+        border: solid 1px rgba($color: #8f8f8f, $alpha: 1.0);
+        border-radius: 10px;
+
+        .infor-container{
+
+            .title{
+                margin-bottom: 50px;
+                padding: 10px;
+                background-color: rgba($color: #dbdf77, $alpha: 1.0);
+                
+                h3{
+                    text-align: center;
+                    font-size: 25px;
+                    font-weight: bolder;
+                }
+            }
+
+            // qrcode container
+            canvas{
+                display: block;
+                margin: 0px auto;
+            }
+        }
+    }
+
+    .go-to-driver-list-btn{
+        position: fixed;
+        bottom: 4%;
+        right: 5%;
+    }
+}
