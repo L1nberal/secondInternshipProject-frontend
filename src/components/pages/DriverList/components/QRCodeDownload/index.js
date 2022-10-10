@@ -35,10 +35,10 @@ function QRCodeDownload({driverId}) {
         <div className={cx('wrapper')}>
             <Button onClick={downloadImage} className={cx('download-btn')}>Tải xuống <FontAwesomeIcon icon={faDownload}/></Button>
             
-            <div className={cx('QRcode-for-downloading')}>
-                <div id="domEl" ref={domEl} className={cx('infor-container')}>
+            <div id="domEl" ref={domEl} className={cx('infor-container')}>
+                <div className={cx('QRcode-for-downloading')}>
                     <div className={cx('title')}>
-                        <h3>UBND Thành phố Huế</h3>
+                        <h3>UBND Thành divhố Huế</h3>
                         <h3>Tổ quản lý xích lô du lịch</h3>
                     </div>
                     <QRCode className={cx('qrcode-hidden')} id="qrcode-hidden" size={400} value={`http://localhost:3001/driver-quotation-${driverId}`}/>

@@ -16,7 +16,7 @@ const cx = classnames.bind(style)
 
 function Signup() {
     const navigate = useNavigate()
-    const { user, databaseLoginHandler } = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
 
     //checking errors for logging in with database 
     const formSchema = Yup.object().shape({
@@ -38,7 +38,6 @@ function Signup() {
 
     // login with database
     function onSubmit(data) {
-        let jwt = ''
         axios.post('http://xichloapi.huecit.com/api/auth/local/register', {
             email: data.email,
             username: data.username,
@@ -65,6 +64,7 @@ function Signup() {
 
     return (
         <div className={cx('wrapper')}>
+            {/* =======================modal dialogue when errors exist=============== */}
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Có Lỗi xảy ra</Modal.Title>
@@ -76,7 +76,7 @@ function Signup() {
                     </Button>
                 </Modal.Footer>
             </Modal>
-
+            {/* =====================form========================= */}
             <Form onSubmit={handleSubmit(onSubmit)} className={cx('form')}>
                 <Form.Group className={cx('form-group')} controlId="formBasicEmail">
                     <Form.Label className={cx('form-group__title')}>Email address</Form.Label>

@@ -36,7 +36,6 @@ function Login() {
 
     // login with database
     function onSubmit(data) {
-        let jwt = ''
         axios.post('http://xichloapi.huecit.com/api/auth/local', {
             identifier: data.email,
             password: data.password
