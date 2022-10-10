@@ -6,12 +6,15 @@ import Globalstyle from './components/GlobalStyle';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Auth from './Auth';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Globalstyle>
       <BrowserRouter>
-        <App />
+        <Auth>
+          <App/>
+        </Auth>
       </BrowserRouter>
     </Globalstyle>
 );

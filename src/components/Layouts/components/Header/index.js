@@ -4,20 +4,25 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import classnames from 'classnames/bind'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import Container from 'react-bootstrap/Container'
+import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import style from './Header.module.scss'
 import Button from 'react-bootstrap/Button';
 import React, { useState } from 'react'
+import { AuthContext } from '../../../../Auth'
+import UserMenu from './UserMenu'
+import {
+    faAngleDown,
+} from '../../../../assets/FontAwesome'
 
 const cx = classnames.bind(style)
 
 function Header() {
+    const { user, databaseLoginHandler, logout } = useContext(AuthContext)
     const navigate = useNavigate()
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
-    // let isLoggedIn = false
-    // console.log(isLoggedIn)
+   
 
     return (
         <Navbar bg="light" expand="lg" className={cx('wrapper')}>
@@ -27,7 +32,7 @@ function Header() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <NavDropdown className={cx('options-list')} title="Options" id="basic-nav-dropdown">
-                            {isLoggedIn === false ? (
+                            {!user ? (
                                 <NavDropdown.Item className={cx('option-cyclo')}  href="/driver-list">Xích Lô</NavDropdown.Item>
                             ) : (
                                 <React.Fragment>
@@ -38,21 +43,34 @@ function Header() {
                             )}
                         </NavDropdown>
                     </Nav>
-                    <Nav className={cx('login-btn-container')}>
-                        {isLoggedIn === false ? (
-                            <Button variant="dark" className={cx('login-btn')} onClick={() => {
-                                setIsLoggedIn(true)
-                                navigate('/')
-                            }}>
-                                Login
-                            </Button>
+                    <Nav className={cx('login-container')}>
+                        {!user ? (
+                            <React.Fragment>
+                                <Button variant="dark" className={cx('login-btn')} onClick={() => {
+                                    // setIsLoggedIn(true)
+                                    navigate('/log-in')
+                                }}>
+                                    Login
+                                </Button>
+    
+                                <Button variant="dark" className={cx('signup-btn')} onClick={() => {
+                                    // setIsLoggedIn(true)
+                                    navigate('/sign-up')
+                                }}>
+                                    Signup
+                                </Button>
+                            </React.Fragment>
                         ) : (
-                            <Button variant="dark" className={cx('login-btn')} onClick={() => {
-                                setIsLoggedIn(false)
-                                navigate('/')
-                            }}>
-                                User
-                            </Button>
+                            <UserMenu logout={logout}>
+                                <div className={cx('user')}>
+                                    <img className={cx('user__avatar')} src="https://haycafe.vn/wp-content/uploads/2022/02/Avatar-trang-den.png"/>
+    
+                                    <div className={cx('user__infor')}>
+                                        <h5 className={cx('username')}>{user.username}</h5>
+                                        <FontAwesomeIcon className={cx('username')} icon={faAngleDown} />
+                                    </div>
+                                </div>
+                            </UserMenu>
                         ) }
                     </Nav>
                 </Navbar.Collapse>

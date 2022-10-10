@@ -8,22 +8,12 @@ import DriverQuotation from "../components/pages/Quotation"
 import DriverList from "../components/pages/DriverList"
 import Management from '../components/pages/Management'
 import QRCodeDownload from '../components/pages/DriverList/components/QRCodeDownload'
+import Login from '../components/pages/Login'
+import Signup from '../components/pages/Signup'
 
 
 function PublishedRoutes() {
     const [loading, setLoading] = useState(false)
-
-    // // get infor from API
-    // useEffect(() => {
-    //     const fetchDrivers = async () => {
-    //         setLoading(true)
-    //         const res = await axios.get('https://jsonplaceholder.typicode.com/users')
-    //         setDrivers(res.data)
-    //         setLoading(false)
-    //     }
-
-    //     fetchDrivers()
-    // }, [])
 
     // get drivers' infor from API
     const [drivers, setDrivers] = useState([])
@@ -39,16 +29,16 @@ function PublishedRoutes() {
         {path: '/', component: Home},
         {path: '/driver-list', component: DriverList},
         {path: '/management', component: Management},
+        {path: '/log-in', component: Login},
+        {path: '/sign-up', component: Signup},
     ]
     // =================quotations' routes================
-    const quotationRoutes = 
-    drivers.map(driver => {
+    const quotationRoutes = drivers.map(driver => {
         return {path: `/driver-quotation-${driver.id}`, component: DriverQuotation, id: driver.id}
     })
 
     // ==============qrcode download====================
-    const qrcodeDownloadRoutes = 
-    drivers.map(driver => {
+    const qrcodeDownloadRoutes = drivers.map(driver => {
         return {path: `/qrcode-download-${driver.id}`, component: QRCodeDownload, id: driver.id}
     })
     return (

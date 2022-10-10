@@ -9,12 +9,12 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import axios from 'axios';
 import Modal from 'react-bootstrap/Modal';
 
-import style from './Login.module.scss'
+import style from './Signup.module.scss'
 import { AuthContext } from '../../../Auth';
 
 const cx = classnames.bind(style)
 
-function Login() {
+function Signup() {
     const navigate = useNavigate()
     const { user, databaseLoginHandler } = useContext(AuthContext)
 
@@ -23,6 +23,8 @@ function Login() {
         email: Yup.string()
             .required('Bạn chưa nhập email!')
             .email(),
+        username: Yup.string()
+            .required('Bạn chưa nhập username!'),
         password: Yup.string()
             .required('Bạn chưa nhập mật khẩu')
             .min(6, 'mật khẩu phải dài ít nhất 6 kí tự'),
@@ -37,28 +39,29 @@ function Login() {
     // login with database
     function onSubmit(data) {
         let jwt = ''
-        axios.post('http://xichloapi.huecit.com/api/auth/local', {
-            identifier: data.email,
+        axios.post('http://xichloapi.huecit.com/api/auth/local/register', {
+            email: data.email,
+            username: data.username,
             password: data.password
         })
             .then(respond => {
-                databaseLoginHandler(respond)
+                navigate('/log-in')
             })
             .catch(error => {
-                setShow(true)
                 console.log(error)
+                setShow(true)
             })      
     }
     // navigate when already logged in
     if(user) {
         navigate('/')
     }
-
     // modal dialogue when errors exist
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
 
     return (
         <div className={cx('wrapper')}>
@@ -66,7 +69,7 @@ function Login() {
                 <Modal.Header closeButton>
                     <Modal.Title>Có Lỗi xảy ra</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Thông tin bạn nhập Không chính xác, mời bạn thử lại!</Modal.Body>
+                <Modal.Body>Thông tin bạn nhập không khả dụng, mời bạn thử lại!</Modal.Body>
                 <Modal.Footer>
                     <Button variant="outline-warning" onClick={handleClose}>
                         Đã hiểu
@@ -74,19 +77,32 @@ function Login() {
                 </Modal.Footer>
             </Modal>
 
-
             <Form onSubmit={handleSubmit(onSubmit)} className={cx('form')}>
                 <Form.Group className={cx('form-group')} controlId="formBasicEmail">
                     <Form.Label className={cx('form-group__title')}>Email address</Form.Label>
                     <Form.Control 
                         type='text' 
-                        placeholder='email or username' 
+                        placeholder='email' 
                         className={cx('form-group__input')}
                         name='email'
                         {...register('email')}
                     />
                     <Form.Text className={cx('form-group__message')}>
                         {errors.email?.message}
+                    </Form.Text>
+                </Form.Group>
+
+                <Form.Group className={cx('form-group')} controlId="formBasicEmail">
+                    <Form.Label className={cx('form-group__title')}>Email address</Form.Label>
+                    <Form.Control 
+                        type='text' 
+                        placeholder='username' 
+                        className={cx('form-group__input')}
+                        name='username'
+                        {...register('username')}
+                    />
+                    <Form.Text className={cx('form-group__message')}>
+                        {errors.username?.message}
                     </Form.Text>
                 </Form.Group>
 
@@ -116,4 +132,4 @@ function Login() {
     )
 }
 
-export default Login
+export default Signup

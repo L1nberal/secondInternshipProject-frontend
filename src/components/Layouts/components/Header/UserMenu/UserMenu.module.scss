@@ -1,0 +1,21 @@
+.menu-container{
+    margin: 0px;
+    padding: 0px;
+    background-color: rgba($color: #e7e6e6, $alpha: 1.0);
+
+    a{
+        text-decoration: none;
+        color: black;
+
+        li{
+            list-style: none;
+            padding: 10px 20px;
+            cursor: pointer;
+    
+            &:hover{
+                background-color: rgba($color: #c6c6c6, $alpha: 1.0);
+            }
+        }
+    }
+    
+}

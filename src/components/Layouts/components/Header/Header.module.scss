@@ -23,10 +23,40 @@
         }
     }
 
-
-    .login-btn-container{
+    .login-container{
+        // haven't logged in yet
         .login-btn{
             width: 100px;
+            margin-right: 10px;
+        }
+
+        .signup-btn{
+            width: 100px;
+        }
+
+        // after logging in
+        .user{
+            display: flex;
+            align-items: center;
+
+            .user__avatar{
+                width: 25px;
+                height: 25px;
+                margin-right: 5px;
+            }
+
+            .user__infor{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .username{
+                    font-weight: bold;
+                    margin: 0px;
+                }
+            }
+
         }
     }
+    
 }

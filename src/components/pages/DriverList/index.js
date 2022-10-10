@@ -1,15 +1,19 @@
 import ListGroup from 'react-bootstrap/ListGroup'
 import classnames from 'classnames/bind'
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
 
 import PaginationComponent from './components/Pagination';
 import Drivers from './components/Drivers';
 import style from './DriverList.module.scss'
+import { AuthContext } from '../../../Auth';
 
 const cx = classnames.bind(style)
 
 function DriverList({drivers, loading}) {
+    // destructuring from AuthContext
+    const { user, databaseLoginHandler } = useContext(AuthContext)
+    
     // =====store current page of the pagination and number of items in a page===========
     const [currentPage, setCurrentPage] = useState(1)
     const [driversPerPage, SetDriversPerPage] = useState(5)
